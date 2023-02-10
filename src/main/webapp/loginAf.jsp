@@ -1,0 +1,34 @@
+<%@page import="dto.MemberDto"%>
+<%@page import="dao.MemberDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+	String id = request.getParameter("id");
+	String pwd = request.getParameter("pwd");
+	
+	MemberDao dao = MemberDao.getInstance();
+	
+	MemberDto mem = dao.login(id, pwd);
+			
+	if(mem != null) {
+		// 로그인 회원정보 -> session에 저장
+		// request.getSession().setAttribute(name, value)
+		session.setAttribute("login", mem);
+		// session.setMaxInactiveInterval(60*60*2); -> 2시간만 저장
+		%>
+		<script type="text/javascript">
+			alert("<%=mem.getName()%>님 환영합니다");
+			// location.href = "";
+		</script>
+		<% 		
+	} else {
+		%>
+		<script type="text/javascript">
+			alert("아이디 또는 비밀번호가 틀렸습니다.");
+			location.href = "login.jsp";
+		</script>	
+		<%
+	}
+%>
+
