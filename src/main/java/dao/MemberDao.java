@@ -132,4 +132,5 @@ public class MemberDao {	// 어디서나 접근 가능하게 만듦 -> 싱글턴
 		}
 		return mem;	
 	}
+	
 }

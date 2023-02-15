@@ -16,3 +16,6 @@ where id='abc';
 select count(*)
 from member
 where id='abc';
+
+delete from member
+where id='1097';
