@@ -19,7 +19,7 @@
 		%>
 		<script type="text/javascript">
 			alert("<%=mem.getName()%>님 환영합니다");
-			// location.href = "";
+			location.href = "./bbslist.jsp";
 		</script>
 		<% 		
 	} else {
